@@ -12,6 +12,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.XPath;
 
 namespace MessageRouter
 {
@@ -177,6 +178,15 @@ namespace MessageRouter
                         JObject o = JObject.Parse(GetMessageBodyAsString(message));
                         bool res = o.SelectToken(condition.Query) != default;
                         return res;
+                    }
+                case "application/xml":
+                    {
+                        using (var stream = new MemoryStream(System.Text.Encoding.UTF8.GetBytes(GetMessageBodyAsString(message))))
+                        {
+                            var doc = new XPathDocument(stream);
+                            var navigator = doc.CreateNavigator();
+                            return navigator.Select(condition.Query).Count > 0;
+                        }
                     }
                 default: {
                         return false; 
