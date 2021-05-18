@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31205.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessageRouter.Core", "MessageRouter.Core\MessageRouter.Core.csproj", "{718E7C18-56AF-4637-96E0-AFC1E7A67D08}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Providers", "Providers", "{7DA7D67C-8F1D-4BCF-9AA1-43F94A9C81C1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessageRouter.Providers.RabbitMQ", "MessageRouter.Providers.RabbitMQ\MessageRouter.Providers.RabbitMQ.csproj", "{AE3AA6C3-99DE-421A-8CFC-E205FEE5E7B8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{023C5872-97EF-4CDD-896B-AF91AAEDB664}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageRouter.Test.Console", "Test\MessageRouter.Test.Console\MessageRouter.Test.Console.csproj", "{6D6B7F3F-9C50-4A38-9DEA-0054442A0D51}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{718E7C18-56AF-4637-96E0-AFC1E7A67D08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{718E7C18-56AF-4637-96E0-AFC1E7A67D08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{718E7C18-56AF-4637-96E0-AFC1E7A67D08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{718E7C18-56AF-4637-96E0-AFC1E7A67D08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE3AA6C3-99DE-421A-8CFC-E205FEE5E7B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE3AA6C3-99DE-421A-8CFC-E205FEE5E7B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE3AA6C3-99DE-421A-8CFC-E205FEE5E7B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE3AA6C3-99DE-421A-8CFC-E205FEE5E7B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D6B7F3F-9C50-4A38-9DEA-0054442A0D51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D6B7F3F-9C50-4A38-9DEA-0054442A0D51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D6B7F3F-9C50-4A38-9DEA-0054442A0D51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D6B7F3F-9C50-4A38-9DEA-0054442A0D51}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AE3AA6C3-99DE-421A-8CFC-E205FEE5E7B8} = {7DA7D67C-8F1D-4BCF-9AA1-43F94A9C81C1}
+		{6D6B7F3F-9C50-4A38-9DEA-0054442A0D51} = {023C5872-97EF-4CDD-896B-AF91AAEDB664}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F34B0124-AE7D-4DE7-A2D5-3E67D7FB689C}
+	EndGlobalSection
+EndGlobal

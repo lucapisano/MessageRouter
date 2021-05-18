@@ -1,0 +1,32 @@
+﻿{
+  "Stores": [
+    "Lambton Quay",
+    "Willis Street"
+  ],
+  "Manufacturers": [
+    {
+      "Name": "Acme Co",
+      "Int": 1,
+      "Products": [
+        {
+          "Name": "Anvil",
+          "Price": 50
+        }
+      ]
+    },
+    {
+      "Name": "Contoso",
+      "Int": 2,
+      "Products": [
+        {
+          "Name": "Elbow Grease",
+          "Price": 99.95
+        },
+        {
+          "Name": "Headlight Fluid",
+          "Price": 4
+        }
+      ]
+    }
+  ]
+}
