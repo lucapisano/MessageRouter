@@ -10,12 +10,12 @@ namespace MessageRouter.Providers
 {
     public class RabbitMqBroker : IBroker, IDisposable
     {
-        private readonly IOptionsSnapshot<RabbitMqOptions> _options;
+        private readonly IOptionsMonitor<RabbitMqOptions> _options;
         private readonly ILogger _logger;
         private IConnection _connection;
         private IModel _channel;
 
-        public RabbitMqBroker(IOptionsSnapshot<RabbitMqOptions> options, ILogger<RabbitMqBroker> logger=default)
+        public RabbitMqBroker(IOptionsMonitor<RabbitMqOptions> options, ILogger<RabbitMqBroker> logger=default)
         {
             _options = options;
             _logger = logger;
@@ -25,7 +25,7 @@ namespace MessageRouter.Providers
             if (_channel == default || _connection == default || !_connection.IsOpen || !_channel.IsOpen)
             {
                 Dispose();
-                ConnectionFactory factory = new ConnectionFactory { Uri = new Uri(_options.Value.ConnectionString) };
+                ConnectionFactory factory = new ConnectionFactory { Uri = new Uri(_options.CurrentValue.ConnectionString) };
                 _connection = factory.CreateConnection();
                 _channel = _connection.CreateModel();
             }

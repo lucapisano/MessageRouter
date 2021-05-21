@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using NLog.Extensions.Logging;
 using System;
+using System.Threading;
 
 namespace MessageRouter
 {
@@ -32,9 +33,13 @@ namespace MessageRouter
             _sp = sc.BuildServiceProvider();
             _engine = _sp.GetRequiredService<RouterEngine>();
             _engine.Start();
-
-            Console.WriteLine("press enter key to stop");
-            Console.ReadLine();
+            var exitEvent = new ManualResetEvent(false);
+            Console.WriteLine($"press CTRL+C to stop");
+            Console.CancelKeyPress += (sender, eventArgs) => {
+                eventArgs.Cancel = true;
+                exitEvent.Set();
+            };
+            exitEvent.WaitOne();
             _engine.Stop();
         }
     }

@@ -18,7 +18,6 @@ namespace MessageRouter
 {
     public class RouterEngine
     {
-        public const string ConfigurationFileName = "appsettings.json";
         private readonly IServiceProvider _sp;
         private readonly ILogger _logger;
         private bool _continue = false;
@@ -82,11 +81,10 @@ namespace MessageRouter
                 return GetBroker(sp, brokerDefinition.Id);
             })
                 .Where(x=>x!=default);
-            //return sp.GetServices<IBroker>();
         }
         GeneralOptions GetOptions(IServiceProvider sp)
         {
-            return sp.GetRequiredService<IOptionsSnapshot<GeneralOptions>>().Value;
+            return sp.GetRequiredService<IOptionsMonitor<GeneralOptions>>().CurrentValue;
         }
         internal async Task RunAsync()
         {
@@ -152,18 +150,10 @@ namespace MessageRouter
                     }
                     finally
                     {
-                        await Task.Delay(TimeSpan.FromSeconds(1));
+                        await Task.Delay(options.RoutingInterval);
                     }
                 }
             }
-            await Task.Delay(TimeSpan.FromSeconds(1));//delay di un secondo tra uno start ed il successivo
-        }
-
-        private async Task<Message> GetMessageFromRabbit()
-        {
-            return await _sp.GetRequiredService<IBroker>().GetNextMessage(new MessageRetrieveArguments { 
-                QueueName="xf",
-            });
         }
         string GetMessageBodyAsString(Message message)
         {
@@ -192,14 +182,6 @@ namespace MessageRouter
                         return false; 
                     }
             }
-        }
-        Message GetFakeMessage()
-        {
-            return new Message
-            {
-                Header = new System.Collections.Generic.Dictionary<string, object> { { "Content-Type", "application/json" } },
-                Body = Encoding.UTF8.GetBytes(File.ReadAllText("input.json"))
-            };
         }
         string GetContentTypeHeader(Message message)
         {

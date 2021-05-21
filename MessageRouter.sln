@@ -11,7 +11,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessageRouter.Providers.Rab
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{023C5872-97EF-4CDD-896B-AF91AAEDB664}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageRouter.Test.Console", "Test\MessageRouter.Test.Console\MessageRouter.Test.Console.csproj", "{6D6B7F3F-9C50-4A38-9DEA-0054442A0D51}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessageRouter.Test.Console", "Test\MessageRouter.Test.Console\MessageRouter.Test.Console.csproj", "{6D6B7F3F-9C50-4A38-9DEA-0054442A0D51}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F3DA99B8-8D2E-4F98-AE85-AAFFA8E5BAD3}"
+	ProjectSection(SolutionItems) = preProject
+		common.props = common.props
+		Dockerfile = Dockerfile
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
