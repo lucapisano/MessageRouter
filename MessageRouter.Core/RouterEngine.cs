@@ -107,11 +107,9 @@ namespace MessageRouter
                                 {
                                     Message message = default;
                                     message = await broker.GetNextMessage(rule.IncomingQueue.MessageRetrieve);
-                                    //Message message = GetFakeMessage();
-                                    //Message message = await GetMessageFromRabbit();
                                     if (message == default)
                                         continue;
-                                    var applicableRules = options.Rules;//TODO: filtrare per IncomingQueue
+                                    var applicableRules = options.Rules;
                                     var applicableConditions = applicableRules.SelectMany(x => x.Conditions.Where(x => x.Type == GetContentTypeHeader(message)));
                                     bool conditionsVerified = applicableConditions.Any();
                                     foreach (var condition in applicableConditions)
@@ -123,7 +121,6 @@ namespace MessageRouter
                                     _logger?.LogDebug($"message {message} condition evaluation result = {conditionsVerified}");
                                     if (conditionsVerified)
                                     {
-                                        //TODO: route to OutgoingQueue
                                         OutgoingQueueDefinition outgoingQueue = rule.OutgoingQueue;
                                         if (outgoingQueue != default)
                                         {
