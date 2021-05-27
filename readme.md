@@ -1,5 +1,5 @@
 # MessageRouter
-## By [Luca Pisano]
+## By [Luca Pisano](https://lucapisano.it)
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://github.com/lucapisano/MessageRouter)
 
@@ -57,4 +57,3 @@ This is an example of how you can configure the router to inspect and route mess
   "RoutingInterval": "00:00:10"
 }
 ```
-    [luca pisano]: <https://lucapisano.it>
