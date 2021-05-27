@@ -6,7 +6,7 @@ using NLog.Extensions.Logging;
 using System;
 using System.Threading;
 
-namespace MessageRouter
+namespace MessageRouter.Console
 {
     class Program
     {
@@ -34,8 +34,8 @@ namespace MessageRouter
             _engine = _sp.GetRequiredService<RouterEngine>();
             _engine.Start();
             var exitEvent = new ManualResetEvent(false);
-            Console.WriteLine($"press CTRL+C to stop");
-            Console.CancelKeyPress += (sender, eventArgs) => {
+            System.Console.WriteLine($"press CTRL+C to stop");
+            System.Console.CancelKeyPress += (sender, eventArgs) => {
                 eventArgs.Cancel = true;
                 exitEvent.Set();
             };
